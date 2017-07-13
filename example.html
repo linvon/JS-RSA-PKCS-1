@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jsencrypt.js"></script>
+
+
+</head>
+<body>
+   <div >
+       <div style="float: left" >
+           <div >private key</div>
+           <div ><textarea id="prikey" style="width: 500px; height: 300px;" ></textarea></div>
+       </div>
+       <div style="float:left;margin-left: 100px;" >
+           <div >public key</div>
+           <div ><textarea id="pubkey" style="width: 500px; height: 300px;" ></textarea></div>
+       </div>
+
+
+       <div style="float: left" >
+           <div >text</div>
+           <div ><textarea id="text" style="width: 400px; height: 200px;" >test</textarea></div>
+       </div>
+       <div style="float:left;margin-left: 100px;" >
+           <div >encrypted</div>
+           <div ><textarea id="encrypted" style="width: 400px; height: 200px;" ></textarea></div>
+       </div>
+   </div>
+
+</body>
+<script type="text/javascript">
+    var encrypt = new JSEncrypt();
+    encrypt.getKey();
+
+    document.getElementById('prikey').value  = encrypt.getPrivateKey();
+    document.getElementById('pubkey').value  = encrypt.getPublicKey();
+
+    var str = document.getElementById('text').value;
+    str = encrypt.encrypt(str);
+    document.getElementById('encrypted').value = str;
+</script>
+</html>
